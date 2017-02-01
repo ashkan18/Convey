@@ -1,0 +1,8 @@
+{
+  "name": "alexa",
+  "description": "Alternative Facts for Amazon Echo Alexa.",
+  "memory": 128,
+  "timeout": 5,
+  "profile": "apex",
+  "role": "tester"
+}
