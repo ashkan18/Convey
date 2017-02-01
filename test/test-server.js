@@ -6,7 +6,7 @@ describe('alexa-app-server', function() {
       .get('/')
       .end(function(err, res) {
         expect(res.status).to.equal(200);
-        expect(res.text).to.equal("Artsy Alexa\n");
+        expect(res.text).to.equal("Conway, You Daily Alternative Facts\n");
         done();
       });
   });
