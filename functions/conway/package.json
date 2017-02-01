@@ -1,0 +1,22 @@
+{
+  "name": "conway",
+  "version": "0.0.1",
+  "description": "An Alternative Fact Alexa skill.",
+  "main": "index.js",
+  "license": "MIT",
+  "author": {
+    "name": "Ashkan Nasseri",
+    "email": "ashkan.nasseri@gmail.com",
+    "url": "http://github.com/ashkan18"
+  },
+  "conway": {
+    "applicationId": "#!@#!@3@"
+  },
+  "dependencies": {
+    "q": "1.4.1",
+    "alexa-app": "^2.4.0",
+    "superagent": "2.3.0",
+    "underscore": "1.8.3",
+    "remove-markdown": "0.1.0"
+  }
+}
