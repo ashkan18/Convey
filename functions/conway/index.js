@@ -3,7 +3,7 @@ var app = new alexa.app('conway');
 var _ = require('underscore');
 var removeMd = require('remove-markdown');
 var conwayPackage = require('./package.json');
-var factsArray = require('/facts.json')
+var factsArray = require('./facts.json')
 var alternativeFactGenerator = require('./services/alternative_fact_generator')
 
 
@@ -67,19 +67,23 @@ app.intent('AltFactIntent', {
   function(req, res) {
     console.log(`app.AltFactIntent: accepted.`);
     randomFact = _.sample(factsArray)
-    res.say("Sorry, I didn't get that artist name. Try again?");
-    return res.shouldEndSession(false, "What artist would you like to hear about?");
+    alternativeFact = alternativeFactGenerator.alternetize(randomFact)
+    res.say(alternativeFact);
+    res.shouldEndSession(true);
+    res.send();
+
+    return false
   }
 );
 
 if (process.env['ENV'] == 'lambda') {
-  console.log("Starting Artsy Alexa on AWS lambda.")
+  console.log("Starting Alternative Fact Alexa on AWS lambda.")
   exports.handle = app.lambda();
 } else if (process.env['ENV'] == 'development') {
-  console.log("Starting Artsy Alexa in development mode.")
+  console.log("Starting Alternative Fact Alexa in development mode.")
   module.exports = app;
 } else if (process.env['ENV'] == 'test') {
-  console.log("Starting Artsy Alexa in test mode.")
+  console.log("Starting Alternative Fact Alexa in test mode.")
   module.exports = app;
 } else {
   var fs = require('fs');
