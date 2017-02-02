@@ -1,5 +1,5 @@
 {
-  "name": "conway",
+  "name": "convey",
   "version": "0.0.1",
   "description": "An Alternative Fact Alexa skill.",
   "main": "index.js",
@@ -9,7 +9,7 @@
     "email": "ashkan.nasseri@gmail.com",
     "url": "http://github.com/ashkan18"
   },
-  "conway": {
+  "convey": {
     "applicationId": "amzn1.echo-sdk-ams.app.999999-9999-9999-9999-999999999999"
   },
   "dependencies": {

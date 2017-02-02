@@ -4,6 +4,6 @@ chai.use(require('chai-string'));
 chai.use(require('chai-http'));
 
 // for code coverage instrumentation
-require('../functions/conway/index.js');
+require('../functions/convey/index.js');
 
 server = require('../server');

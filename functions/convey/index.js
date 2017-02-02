@@ -1,20 +1,20 @@
 var alexa = require('alexa-app');
-var app = new alexa.app('conway');
+var app = new alexa.app('convey');
 var _ = require('underscore');
 var removeMd = require('remove-markdown');
-var conwayPackage = require('./package.json');
+var conveyPackage = require('./package.json');
 var factsArray = require('./facts.json')
 var alternativeFactGenerator = require('./services/alternative_fact_generator')
 
 
-console.log(`Loaded conway ${conwayPackage.version}.`);
+console.log(`Loaded convey ${conveyPackage.version}.`);
 
 module.change_code = 1; // allow this module to be reloaded by hotswap when changed
 
 app.launch(function(req, res) {
   console.log('app.launch');
   res
-    .say("We have Ms. Conway on the line! Ask her for an alternative fact.")
+    .say("We have Ms. convey on the line! Ask her for an alternative fact.")
     .shouldEndSession(false, "Say help if you need help or exit any time to exit.")
     .send();
 });
@@ -27,7 +27,7 @@ app.intent('AMAZON.StopIntent', {
   },
   function(req, res) {
     console.log('app.AMAZON.StopIntent');
-    res.say("Conway says Goodbye.");
+    res.say("convey says Goodbye.");
     res.send();
   }
 );
@@ -40,7 +40,7 @@ app.intent('AMAZON.CancelIntent', {
   },
   function(req, res) {
     console.log('app.AMAZON.CancelIntent');
-    res.say("Conway says Goodbye.");
+    res.say("convey says Goodbye.");
     res.send();
   }
 );
@@ -53,7 +53,7 @@ app.intent('AMAZON.HelpIntent', {
   },
   function(req, res) {
     console.log('app.AMAZON.HelpIntent');
-    res.say("Conway can tell you random alternative facts. For example say ask Conway for an alternative fact.");
+    res.say("convey can tell you random alternative facts. For example say ask convey for an alternative fact.");
     res.shouldEndSession(false);
     res.send();
   }

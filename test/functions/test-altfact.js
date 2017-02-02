@@ -3,7 +3,7 @@ require('./../setup');
 describe('alternativeFact', function() {
   it('should respond', function(done) {
     chai.request(server)
-      .post('/alexa/conway')
+      .post('/alexa/convey')
       .send(require('./fixtures/AltFactIntentRequest.json'))
       .end(function(err, res) {
         console.log(res.status)

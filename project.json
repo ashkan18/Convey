@@ -1,8 +1,10 @@
 {
-  "name": "alexa",
+  "name": "convey",
   "description": "Alternative Facts for Amazon Echo Alexa.",
   "memory": 128,
   "timeout": 5,
-  "profile": "apex",
-  "role": "tester"
+  "runtime": "nodejs4.3",
+  "profile": "default",
+  "role": "arn:aws:iam::958776994938:role/convey_lambda_function",
+  "environment": {}
 }

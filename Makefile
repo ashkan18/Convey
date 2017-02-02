@@ -5,8 +5,8 @@ s:
 # Build
 build:
 	npm install
-	cd functions/conway && npm install
-	cd functions/conway && node index.js
+	cd functions/convey && npm install
+	cd functions/convey && node index.js
 
 # Deploy to AWS Lambda
 deploy: build
