@@ -1,8 +1,7 @@
 # Convey
+![](images/alt-facts.png)
 
-[![](images/echo-dot-2nd-gen.jpg)](https://developer.amazon.com/alexa)
-
-An Amazon Alexa [skill](functions/convey) for generating random [Alternative Facts](https://en.wikipedia.org/wiki/Alternative_facts). 
+An Amazon [Alexa](https://developer.amazon.com/alexa) [skill](functions/convey) for generating random [Alternative Facts](https://en.wikipedia.org/wiki/Alternative_facts). 
 
 ### Current Skills
 
