@@ -66,13 +66,18 @@ app.intent('AltFactIntent', {
   },
   function(req, res) {
     console.log(`app.AltFactIntent: accepted.`);
+    /*
     randomFact = _.sample(factsArray)
     alternativeFact = alternativeFactGenerator.alternetize(randomFact)
-    res.say(alternativeFact);
-    res.shouldEndSession(true);
-    res.send();
+    */
+    alternativeFactGenerator.altFactFromNews().then(function(alternativeFact) {
+      res.say(alternativeFact);
+      res.shouldEndSession(true);
+      res.send();
 
-    return false
+      return false
+
+    })
   }
 );
 
