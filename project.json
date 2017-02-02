@@ -5,6 +5,6 @@
   "timeout": 5,
   "runtime": "nodejs4.3",
   "profile": "default",
-  "role": "arn:aws:iam::958776994938:role/convey_lambda_function",
+  "role": "arn:aws:iam::958776994938:role/Convey_lambda_function",
   "environment": {}
 }

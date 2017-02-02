@@ -1,5 +1,5 @@
 {
-  "name": "conway",
+  "name": "convey",
   "version": "1.0.0",
   "description": "Alt Fact for Echo",
   "main": "index.js",
@@ -13,7 +13,7 @@
     "Echo",
     "Alternative",
     "Fact",
-    "Conway"
+    "convey"
   ],
   "author": "Ashkan Nasseri",
   "license": "MIT",
