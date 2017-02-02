@@ -53,7 +53,7 @@ app.intent('AMAZON.HelpIntent', {
   },
   function(req, res) {
     console.log('app.AMAZON.HelpIntent');
-    res.say("convey can tell you random alternative facts. For example say ask convey for an alternative fact.");
+    res.say("Convey can tell you random alternative facts. Ask her for an alternative fact.");
     res.shouldEndSession(false);
     res.send();
   }
