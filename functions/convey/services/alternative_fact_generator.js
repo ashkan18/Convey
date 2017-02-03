@@ -21,25 +21,22 @@ function altFactFromNews() {
 
 	return new Promise(function(resolve, reject) {
 		console.log('getting headline')
-		getHeadline('http://news.google.com/news/section?cf=all&hl=en&ned=us&q=Donald+Trump&topicsid=en_us:w').then(function(headline) {
+		getHeadline('https://news.google.com/?section=all&sdm=HEADLINE&topicsid=en_us').then(function(headline) {
 		    console.log('headline', headline)
 		    var statement = nlp.statement(headline)
 		    var tags = statement.tags()
 		    //console.log(tags)
 		    isAmbiguous = tags.filter(function(tag) { return tag==='?'}).length > 0
-		    
+
 		    if(isAmbiguous) {
-		      //console.log(headline, tags ,'isAmbiguous')
-		      //return
 		      reject('isAmbiguous');
 		    }
-		    
+
 		    isPresent = tags.filter(function(tag) { return tag==='PresentTense'}).length > 0
 		    isPast = tags.filter(function(tag) { return tag==='PastTense'}).length > 0
 		    isCopula = tags.filter(function(tag) { return tag==='Copula'}).length > 0
 		    isVerb = tags.filter(function(tag) { return tag==='Verb'}).length > 0
 		    isInfinitive = tags.filter(function(tag) { return tag==='Infinitive'}).length > 0
-		    //console.log(tags)
 		    if(isPresent) {
 		      var negate = statement.to_past().negate().text()
 		      console.log(headline + ' => ' + negate)
@@ -51,14 +48,11 @@ function altFactFromNews() {
 		      resolve(negate)
 		    }
 		    else {
-		    	//resolve('False: '+ headline)
 		    	reject('no verb')
 		    }
-		    //console.log(statement.to_past().negate().text())
 		})
-	})		
-
-  }
+	})
+}
 
 function getHeadline(url) {
 	return new Promise(function(resolve, reject) {
@@ -66,25 +60,16 @@ function getHeadline(url) {
   		request(url, function (error, response, body) {
 	  		console.log('request')
 	    	if (!error && response.statusCode === 200) {
-	      		var $ = cheerio.load(body);
-	      		var headlines = $('.titletext');
-			    // `pick()` doesn't work here because `headlines` isn't an array, so instead we use `cheerio`'s `eq` which
+	      	var $ = cheerio.load(body);
+	      	var headlines = $('.titletext');
 			    // give us a matched element at a given index, and pass it a random number.
 			    var headline = headlines.eq(Math.floor(Math.random()*headlines.length)).text();
-	      		resolve(headline);
+	      	resolve(headline);
 	    	}
 	    	else {
-	      		console.log('error request ', error)
-	      		reject(error);
+	      	console.log('error request ', error)
+	      	reject(error);
 	    	}
 		});
-	 })
-
- 
+	})
 }
-
-/*
-altFactFromNews().then(function(alternativeFact) {
-	console.log(alternativeFact)
-})
-*/
