@@ -60,26 +60,20 @@ app.intent('AMAZON.HelpIntent', {
 );
 
 app.intent('AltFactIntent', {
-    "utterances": [
-      "for an alternative fact"
+    'utterances': [
+      'for an alternative fact'
     ]
   },
   function(req, res) {
-    console.log(`app.AltFactIntent: accepted.`);
-    /*
-    randomFact = _.sample(factsArray)
-    alternativeFact = alternativeFactGenerator.alternetize(randomFact)
-    */
+    
     alternativeFactGenerator.altFactFromNews().then(function(alternativeFact) {
       res.say(alternativeFact);
       res.shouldEndSession(true);
-      res.send();
-
-      return false
-
-    })
-  }
-);
+      res.send()
+    });
+    // return false immediately so alexa-app doesn't send the response
+    return false;
+});
 
 if (process.env['ENV'] == 'lambda') {
   console.log("Starting Alternative Fact Alexa on AWS lambda.")
