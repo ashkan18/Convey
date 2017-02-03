@@ -70,7 +70,14 @@ app.intent('AltFactIntent', {
       res.say(alternativeFact);
       res.shouldEndSession(true);
       res.send()
-    });
+    })
+    .catch(function(error) {
+      var randomFact = _.sample(factsArray)
+      var alternativeFact = alternativeFactGenerator.alternetize(randomFact)
+      res.say(alternativeFact)
+      res.shouldEndSession(true);
+      res.send()
+    })
     // return false immediately so alexa-app doesn't send the response
     return false;
 });

@@ -27,13 +27,13 @@ function altFactFromNews() {
 		    var tags = statement.tags()
 		    //console.log(tags)
 		    isAmbiguous = tags.filter(function(tag) { return tag==='?'}).length > 0
-		    /*
+		    
 		    if(isAmbiguous) {
 		      //console.log(headline, tags ,'isAmbiguous')
 		      //return
 		      reject('isAmbiguous');
 		    }
-		    */
+		    
 		    isPresent = tags.filter(function(tag) { return tag==='PresentTense'}).length > 0
 		    isPast = tags.filter(function(tag) { return tag==='PastTense'}).length > 0
 		    isCopula = tags.filter(function(tag) { return tag==='Copula'}).length > 0
@@ -51,7 +51,8 @@ function altFactFromNews() {
 		      resolve(negate)
 		    }
 		    else {
-		    	resolve('False: '+ headline)
+		    	//resolve('False: '+ headline)
+		    	reject('no verb')
 		    }
 		    //console.log(statement.to_past().negate().text())
 		})
