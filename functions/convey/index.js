@@ -68,7 +68,7 @@ app.intent('AltFactIntent', {
   function(req, res) {
     
     alternativeFactGenerator.altFactFromNews(5).then(function(alternativeFact) {
-      res.say(alternativeFact.join(', '));
+      res.say(`Here are today's alternative facts: ${alternativeFact.join('; ')}`);
       res.shouldEndSession(true);
       res.send()
     })
