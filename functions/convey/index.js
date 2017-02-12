@@ -61,20 +61,21 @@ app.intent('AMAZON.HelpIntent', {
 
 app.intent('AltFactIntent', {
     'utterances': [
-      'for an alternative fact'
+      'for an alternative fact',
+      "today's alternative facts"
     ]
   },
   function(req, res) {
     
-    alternativeFactGenerator.altFactFromNews().then(function(alternativeFact) {
-      res.say(alternativeFact);
+    alternativeFactGenerator.altFactFromNews(5).then(function(alternativeFact) {
+      res.say(alternativeFact.join(', '));
       res.shouldEndSession(true);
       res.send()
     })
     .catch(function(error) {
       var randomFact = _.sample(factsArray)
-      var alternativeFact = alternativeFactGenerator.alternetize(randomFact)
-      res.say(alternativeFact)
+      var alternativeFacts = alternativeFactGenerator.alternetize(randomFact)
+      res.say(`Here are today's alternative facts: ${alternativeFact}`)
       res.shouldEndSession(true);
       res.send()
     })

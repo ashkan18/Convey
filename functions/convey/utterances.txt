@@ -2,3 +2,4 @@ AMAZON.StopIntent	stop
 AMAZON.CancelIntent	cancel
 AMAZON.HelpIntent	help
 AltFactIntent	for an alternative fact
+AltFactIntent	today's alternative facts
